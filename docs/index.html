@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roshni Katkar - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(100, 100, 255, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 20px 80px;
+            text-align: left;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #b0b0b0;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #d0d0d0;
+            max-width: 800px;
+            line-height: 1.8;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-dark {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title i {
+            color: #667eea;
+        }
+
+        /* Mission & Values */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(100, 100, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .value-card:hover {
+            border-color: rgba(100, 100, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .value-card i {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h4 {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(100, 100, 255, 0.1);
+        }
+
+        .skill-category h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: #667eea;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: #d0d0d0;
+        }
+
+        .skill-item i {
+            font-size: 1.5rem;
+        }
+
+        .core-strengths {
+            margin-top: 2rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .core-strengths h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            border: 1px solid rgba(100, 100, 255, 0.2);
+            font-size: 0.9rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(100, 100, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: rgba(100, 100, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .project-card h4 {
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: #d0d0d0;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tag {
+            background: rgba(102, 126, 234, 0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: #a0b0ff;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: #8899ff;
+        }
+
+        /* Career Goals */
+        .goals-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .goals-box p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .goals-box .highlight {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .goals-list {
+            list-style: none;
+        }
+
+        .goals-list li {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: #d0d0d0;
+        }
+
+        .goals-list li:before {
+            content: "→";
+            color: #667eea;
+            font-size: 1.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+        }
+
+        .contact h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact .subtitle {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            margin-bottom: 2rem;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 1px solid;
+        }
+
+        .btn-github {
+            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            border-color: rgba(100, 100, 255, 0.2);
+        }
+
+        .btn-github:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #667eea;
+        }
+
+        .btn-email {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .btn-email:hover {
+            background: #7d8ef5;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(100, 100, 255, 0.1);
+            color: #808080;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .profile-pic {
+            height: 240px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Roshni Katkar</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="container">
+            <div class="hero-content">
+                <div>
+                    <h1>Roshni Katkar</h1>
+                    <p class="subtitle">Aspiring Software Developer</p>
+                </div>
+            </div>
+            <p>Building impactful applications with strong fundamentals in Data Structures & Algorithms, Web Development, and Databases. Passionate about privacy-first, AI-driven technologies.</p>
+        </div>
+    </section>
+
+    <!-- Mission & Values -->
+    <section class="section-dark">
+        <div class="container">
+            <h3 class="section-title">
+                <i class="fas fa-rocket"></i>
+                Mission & Values
+            </h3>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Privacy-First Technology</h4>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-code"></i>
+                    <h4>Full-Stack Development</h4>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-brain"></i>
+                    <h4>AI Democratization</h4>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Startup Mindset</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h3 class="section-title">
+                <i class="fas fa-laptop-code"></i>
+                Technical Skills
+            </h3>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Languages</h4>
+                    <div class="skill-item">
+                        <i class="fab fa-java"></i>
+                        <span>Java</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-js-square"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-code"></i>
+                        <span>Kotlin</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-node-js"></i>
+                        <span>Node.js</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Web Technologies</h4>
+                    <div class="skill-item">
+                        <i class="fab fa-html5"></i>
+                        <span>HTML</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt"></i>
+                        <span>CSS</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>REST/JSON</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-lock"></i>
+                        <span>Auth & Tokens</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Databases</h4>
+                    <div class="skill-item">
+                        <i class="fas fa-database"></i>
+                        <span>SQL</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-server"></i>
+                        <span>NoSQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Tools</h4>
+                    <div class="skill-item">
+                        <i class="fab fa-git-alt"></i>
+                        <span>Git</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-cog"></i>
+                        <span>CI/CD</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="core-strengths">
+                <h4>
+                    <i class="fas fa-star"></i>
+                    Core Strengths
+                </h4>
+                <div class="tags">
+                    <span class="tag">Strong DSA Fundamentals</span>
+                    <span class="tag">Event-Driven Services</span>
+                    <span class="tag">Clean & Testable Code</span>
+                    <span class="tag">Performance Optimization</span>
+                    <span class="tag">Async Workflows</span>
+                    <span class="tag">Error Handling</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section-dark" id="projects">
+        <div class="container">
+            <h3 class="section-title">
+                <i class="fas fa-project-diagram"></i>
+                Featured Projects
+            </h3>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h4>Blooming Website</h4>
+                    <p>A beautifully designed website showcasing creativity and frontend development skills.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Frontend</span>
+                        <span class="project-tag">Design</span>
+                        <span class="project-tag">UI/UX</span>
+                    </div>
+                    <a href="https://github.com/roshnikatkar/Blooming" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i>
+                        View on GitHub
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h4>Medical Website</h4>
+                    <p>A healthcare-oriented website demonstrating UI/UX and structured content delivery.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Healthcare</span>
+                        <span class="project-tag">Web Dev</span>
+                        <span class="project-tag">Design</span>
+                    </div>
+                    <a href="https://github.com/roshnikatkar/Medical-Website" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i>
+                        View on GitHub
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Goals -->
+    <section>
+        <div class="container">
+            <h3 class="section-title">
+                <i class="fas fa-bullseye"></i>
+                Career Goals
+            </h3>
+            <div class="goals-box">
+                <p>Aiming to contribute to innovative companies like <span class="highlight">Hushh.ai</span>, focusing on:</p>
+                <ul class="goals-list">
+                    <li>Building and shipping user-facing features across the stack</li>
+                    <li>Implementing event-driven services with observability</li>
+                    <li>Writing comprehensive unit and integration tests</li>
+                    <li>Optimizing performance with caching, async workflows, and error handling</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section-dark" id="contact">
+        <div class="container">
+            <h3>Let's Connect</h3>
+            <p class="subtitle">Ready to build something amazing together? Reach out!</p>
+            <div class="contact-buttons">
+                <a href="https://github.com/roshnikatkar" target="_blank" class="btn btn-github">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+                <a href="mailto:roshni@example.com" class="btn btn-email">
+                    <i class="fas fa-envelope"></i>
+                    Email Me
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Roshni Katkar. Built with passion and code.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = '#b0b0b0';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.color = '#667eea';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
